@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@drawable/round_home_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/home" />
+    <item
+        android:icon="@drawable/round_cast_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/search" />
+    <item
+        android:title=""
+        android:enabled="false" />
+    <item
+        android:icon="@drawable/round_help_outline_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/help" />
+    <item
+        android:icon="@drawable/round_person_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/account" />
+</menu>

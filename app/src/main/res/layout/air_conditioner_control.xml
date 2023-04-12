@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.myapplication.ui.data.UiState" />
+
+        <variable
+            name="uiState"
+            type="com.example.myapplication.ui.data.UiState" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/screen_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/keyboard_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="4">
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@{uiState.temperature.toString()}"
+                android:textAlignment="center"
+                android:textColor="@color/on_background"
+                android:textSize="64sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/temperature_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_unit"
+                android:textColor="@color/on_background"
+                app:flow_verticalAlign="top"
+                app:layout_constraintLeft_toRightOf="@id/temperature"
+                app:layout_constraintTop_toTopOf="@id/temperature" />
+
+            <TextView
+                android:id="@+id/wind_speed_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{UiState.windSpeedStringOf(uiState.windSpeed)}"
+                app:flow_verticalAlign="bottom"
+                app:layout_constraintBottom_toBottomOf="@id/temperature"
+                app:layout_constraintLeft_toRightOf="@id/temperature" />
+
+            <TextView
+                android:id="@+id/mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{UiState.modeStringOf(uiState.faaMode)}"
+                android:textColor="@color/on_background"
+                app:flow_horizontalAlign="start"
+                app:layout_constraintBottom_toTopOf="@id/wind_speed_text"
+                app:layout_constraintLeft_toLeftOf="@id/wind_speed_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/keyboard_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/screen_layout"
+            app:layout_constraintVertical_weight="4">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/power"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/background"
+                    android:contentDescription="@string/power_button"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/round_power_settings_new_24"
+                    android:tint="@color/power_on" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/mode_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:elevation="0dp"
+                    android:text="模式"
+                    android:textSize="@dimen/sp_36"
+                    android:translationZ="0dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/wind_speed_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="风速"
+                    android:textSize="@dimen/sp_36" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/turn_down_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/background"
+                    android:contentDescription="@string/turn_down"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/round_remove_24"
+                    android:tint="@color/on_background" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/sp_36" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/turn_up_button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/background"
+                    android:contentDescription="@string/turn_up"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/round_add_24"
+                    android:tint="@color/on_background" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

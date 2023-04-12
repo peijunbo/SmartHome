@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgressBar">
+        <attr name="innerElevation" format="integer" />
+        <attr name="upperTitle" format="string" />
+        <attr name="lowerTitle" format="string" />
+        <attr name="centerIcon" format="reference" />
+        <attr name="centerIconTint" format="color" />
+        <attr name="android:progress" format="integer" />
+        <attr name="surfaceColor" format="color" />
+        <attr name="activated" format="boolean" />
+    </declare-styleable>
+</resources>

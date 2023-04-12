@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="uiState"
+            type="com.example.myapplication.ui.data.UiState" />
+
+        <variable
+            name="fragment"
+            type="com.example.myapplication.ui.room.controller.LightFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.example.myapplication.ui.view.CircularProgressBar
+            android:id="@+id/circular_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:progress="@{uiState.rate}"
+            app:centerIcon="@drawable/round_lightbulb_24"
+            app:layout_constraintBottom_toTopOf="@id/center_horizontal_guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.64" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center_horizontal_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.64" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="99"
+            android:progress="@={uiState.rate}"
+            android:onStopTrackingTouch="@{fragment::processRateResult}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/center_horizontal_guideline"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintWidth_percent="0.8" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

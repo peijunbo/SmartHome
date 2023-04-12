@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.myapplication.ui.data.UiState" />
+
+        <variable
+            name="uiState"
+            type="UiState" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@{uiState.activated ? @color/surface : @color/background}"
+        app:cardCornerRadius="@dimen/dp_16"
+        app:cardElevation="@dimen/dp_8"
+        app:contentPadding="@dimen/dp_16">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/switch_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/switch_icon"
+                android:maxWidth="@dimen/dp_64"
+                android:maxHeight="@dimen/dp_64"
+                android:minWidth="@dimen/dp_36"
+                android:minHeight="@dimen/dp_36"
+                android:src="@drawable/round_power_settings_new_24"
+                android:tint="@{uiState.activated ? @color/on_surface : @color/dark_surface}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/room_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_8"
+                android:text="@{uiState.roomName}"
+                android:textColor="@{uiState.activated ? @color/on_surface_light : @color/on_background_light}"
+                app:flow_horizontalAlign="start"
+                app:layout_constraintBottom_toTopOf="@id/switch_name"
+                app:layout_constraintStart_toStartOf="@id/switch_icon"
+                app:layout_constraintTop_toBottomOf="@id/switch_icon" />
+
+            <TextView
+                android:id="@+id/switch_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{uiState.controllerName}"
+                android:textColor="@{uiState.activated ? @color/on_surface : @color/on_background}"
+                app:flow_horizontalAlign="start"
+                app:layout_constraintBottom_toTopOf="@id/switcher"
+                app:layout_constraintStart_toStartOf="@id/switch_icon"
+                app:layout_constraintTop_toBottomOf="@id/room_name" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={uiState.activated}"
+                app:flow_horizontalAlign="start"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/switch_icon"
+                app:layout_constraintTop_toBottomOf="@id/switch_name" />
+
+            <ImageView
+                android:id="@+id/options_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/options"
+                android:src="@drawable/outline_more_vert_24"
+                app:flow_verticalAlign="top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/switch_icon"
+                app:tint="@color/black" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
