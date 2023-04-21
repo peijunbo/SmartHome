@@ -83,6 +83,7 @@ class UiState @JvmOverloads constructor(
             curTemperature = temperature.value!!
         }
         setTemperature(curTemperature - 1)
+
     }
 
     fun switchActivated() {

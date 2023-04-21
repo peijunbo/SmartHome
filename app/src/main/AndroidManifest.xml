@@ -18,9 +18,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/icon_launcher"
+        android:icon="@drawable/intelligent_home"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/icon_launcher"
+        android:roundIcon="@drawable/intelligent_home"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">

@@ -7,6 +7,7 @@
     <data>
 
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,8 +26,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:navigationIconTint="@color/on_background"
-                app:navigationIcon="@drawable/outline_menu_24" />
+                app:navigationIcon="@drawable/outline_menu_24"
+                app:navigationIconTint="@color/on_background" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
@@ -57,27 +58,32 @@
             app:layout_constraintVertical_bias="0.7"
             app:layout_constraintVertical_weight="1"
             app:layout_constraintWidth_percent="0.8">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/weather_icon"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/weather_icon" />
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/weather_text"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:textColor="@color/on_surface" />
+
                     <TextView
                         android:id="@+id/weather_wind"
                         android:layout_width="match_parent"
@@ -112,8 +118,8 @@
                     android:id="@+id/pager_tab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/switch_room"
                     android:backgroundTint="@color/root_background"
+                    android:contentDescription="@string/switch_room"
                     app:tabBackground="@null"
                     app:tabGravity="center"
                     app:tabIndicatorFullWidth="false"
@@ -126,7 +132,7 @@
                     android:id="@+id/controller_pager"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
             </LinearLayout>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
